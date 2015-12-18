@@ -20,6 +20,12 @@ module Gym
       elsif Gym.project.mac?
         compress_and_move_dsym
         move_mac_app
+      else
+        # For tvOS Build, use iOS
+        package_app
+        fix_package
+        compress_and_move_dsym
+        move_ipa
       end
     end
 
